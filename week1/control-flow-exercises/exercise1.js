@@ -23,3 +23,4 @@ function logType(arg) {
         console.log("I have no idea!");
     }
 }
+console.log(0);
