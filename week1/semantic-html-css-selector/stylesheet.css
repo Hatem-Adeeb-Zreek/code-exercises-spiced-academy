@@ -1,0 +1,144 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: bisque;
+}
+
+header {
+    text-align: center;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+}
+
+img {
+    height: 550px;
+}
+
+aside {
+    float: right;
+}
+
+main {
+    float: left;
+}
+
+#tomato {
+    font-size: 60px;
+    padding: 20px;
+    background-color: pink;
+}
+
+.vampire {
+    position: absolute;
+    left: 40vw;
+    font-size: 260px;
+    bottom: 50px;
+    transition: transform 3s ease-in;
+    z-index: 1;
+}
+
+.vampire:hover {
+    transform: scale(3) rotate(650deg);
+}
+
+.good {
+    background-color: chartreuse;
+}
+
+.things {
+    background-color: purple;
+}
+
+div.first-div#quotes {
+    background-color: gold;
+}
+
+/* immediate child selector */
+div > p {
+    border: 2px dotted black;
+}
+
+li.make-blue {
+    background-color: blue;
+    color: white;
+}
+
+/* adjacent sibling selector */
+ul + p {
+    background-color: crimson;
+    border: 1px solid black;
+    color: antiquewhite;
+    width: 150px;
+}
+
+/* general sibling selector */
+.make-blue ~ li {
+    font-family: "Comic Sans MS";
+}
+
+/* targetting by attribute */
+input[name="firstname"] {
+    background-color: turquoise;
+}
+
+img[alt="A very nice picture of some dried oregano"] {
+    border: 2px dotted red;
+    animation: slide 3s forwards infinite;
+}
+
+li:nth-child(2) {
+    font-size: 20px;
+}
+
+li:first-child {
+    font-size: 6px;
+}
+
+li:last-child {
+    background-color: black;
+    border: 2px dotted limegreen;
+    color: yellow;
+}
+
+div:hover,
+h1:hover {
+    background-color: cyan;
+    /* border: 2px solid maroon; */
+}
+
+a:active {
+    color: red;
+    background-color: yellow;
+}
+
+a:visited {
+    color: firebrick;
+}
+
+h1:before {
+    content: "🍩";
+    font-size: 30px;
+}
+
+div:after {
+    content: "hi there";
+    font-size: 10px;
+    background-color: red;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(-900px) rotate(270deg);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
