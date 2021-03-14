@@ -1,52 +1,165 @@
+/* initialize the browser settings */
 * {
     box-sizing: border-box;
 }
 body {
-    margin: 0;
-}
-header {
-    position: relative;
-    overflow: hidden;
-    margin-bottom: 10px;
+    margin: 0px;
+    font-family: Georgia, "Times New Roman", Times, serif;
+    background-color: rgb(182, 179, 179);
 }
 
-#menu-logo {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-}
-#spiced-logo {
-    margin-top: 10px;
-    margin-left: 10px;
-}
-main {
+/* style the header elements */
+
+nav {
     position: relative;
-    overflow: hidden;
-    background-image: url(./assets/spices.jpg);
-    height: 500px;
+    padding: 10px 20px;
+    background-color: white;
 }
 
-main h1 {
+nav img {
+    width: 150px;
+    height: 50px;
+}
+
+img[alt="menu"] {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    right: 0px;
+}
+
+/* style the main elements */
+/* section 1 */
+.spices {
+    position: relative;
+}
+.spices > img {
+    width: 100%;
+}
+
+.spices h1 {
+    position: absolute;
+    bottom: 57%;
+    left: 21%;
+    font-size: 40px;
     color: white;
     font-style: italic;
-    font-size: 30px;
-    font-family: "Times New Roman", Times, serif;
 }
-main button {
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: 25px;
-    background-color: yellow;
-    color: goldenrod;
-    border: 5px solid goldenrod;
-    padding: 10px;
-    border-radius: 25px;
+
+button[type="submit"] {
+    background-color: rgb(253, 215, 43);
+    color: rgb(201, 135, 13);
     width: 20%;
+    font-size: 25px;
+    padding: 10px;
+    border: 5px rgb(201, 135, 13) solid;
+    border-radius: 50px;
+    position: absolute;
+    top: 45%;
+    right: 45%;
+}
+
+img[alt="spices"]:hover {
+    filter: brightness(50%);
+}
+
+/* section 2 */
+.advantages img {
+    width: 40px;
+    margin-right: 5px;
+}
+ul {
+    position: relative;
+}
+li:nth-child(2) {
+    position: absolute;
+    right: 100px;
+    top: 0;
+}
+li:last-child {
+    position: absolute;
+    top: 50%;
+    right: 100px;
+}
+.left {
+    margin-left: 3%;
+}
+li {
+    list-style: none;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
     font-size: 20px;
+}
+
+/* style footer */
+footer {
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+/* apply some styles for the break-points btw 480px --- 720px */
+@media screen and (min-width: 480px) and (max-width: 720px) {
+    .spices h1 {
+        bottom: 45%;
+        left: 15%;
+        font-size: 25px;
+    }
+    button[type="submit"] {
+        top: 55%;
+        font-size: 10px;
+    }
+    li:nth-child(2),
+    li:last-child {
+        position: static;
+    }
+    ul {
+        text-align: center;
+    }
+}
+
+/* apply some styles for the break-points 320px --- 480px */
+@media screen and (min-width: 320px) and (max-width: 480px) {
+    nav img {
+        width: 60px;
+        height: 30px;
+    }
+    .spices h1 {
+        left: 20%;
+        font-size: 15px;
+    }
+    button[type="submit"] {
+        font-size: 5px;
+    }
+    ul {
+        text-align: center;
+    }
+    li:nth-child(2),
+    li:last-child {
+        position: static;
+    }
+    li {
+        font-size: 10px;
+    }
+    .advantages img {
+        width: 25px;
+    }
+}
+
+/* apply some styles when the user's favorite schema DARK */
+@media (prefers-color-scheme: dark) {
+    body,
+    nav {
+        background-color: rgb(37, 37, 37);
+        color: antiquewhite;
+    }
+    footer {
+        background-color: rgb(65, 63, 63);
+    }
+    button[type="submit"] {
+        background-color: rgb(37, 37, 37);
+    }
+    img[alt="spices"] {
+        filter: brightness(50%);
+    }
 }
