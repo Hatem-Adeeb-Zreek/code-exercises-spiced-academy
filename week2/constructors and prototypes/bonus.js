@@ -1,31 +1,21 @@
-// function Countdown(num) {
-//     this.num = num;
-// }
-// Countdown.prototype.start = function () {
-//     setTimeout(() => {
-//         var counter = this.num;
-//         console.log(counter);
-//         while (counter > 0) {
-//             counter = counter - 1;
-//         }
-//         return counter;
-//     }, 10000);
-// };
 function Countdown(numOfSeconds) {
     this.numOfSeconds = numOfSeconds;
 }
-Countdown.prototype.start = setTimeout(function (counter) {
-    console.log("test");
-    counter = this.numOfSeconds;
+Countdown.prototype.start = function () {
+    var counter = this.numOfSeconds;
     console.log(counter);
-    while (counter > 0) {
-        console.log("counter...");
-        console.log(counter--);
+    setTimeout(startCountingDown, 1000);
+    function startCountingDown() {
+        counter--;
+        if (counter > 0) {
+            setTimeout(startCountingDown, 1000);
+        }
+        console.log(counter);
     }
-}, 1000);
+};
 
 var countdown = new Countdown(5);
-console.log(countdown);
 countdown.start();
 
-// still working
+// my code works fine  and I have a counter from 5 to zero with
+// a delay 1 second
