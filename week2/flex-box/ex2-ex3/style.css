@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    min-height: 100vh; /*  fills the browser window */
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+header {
+    background-color: rgba(255, 166, 0, 0.829);
+    height: 70px;
+}
+main {
+    background-color: rgba(128, 128, 128, 0.788);
+    display: flex;
+    flex-grow: 1; /* fill the remainder of the available space */
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    background-color: pink;
+    height: 30px;
+}
