@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+/* positioning  and coloring */
+#container {
+    display: flex;
+}
+.small-containers {
+    display: flex;
+    width: 200px;
+    height: 200px;
+    margin: 5px;
+}
+#small1 {
+    background-color: rgba(128, 128, 128, 0.932);
+    justify-content: flex-end;
+}
+#small2 {
+    background-color: black;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+#small3 {
+    background-color: rgba(0, 0, 255, 0.74);
+    align-items: flex-end;
+}
+#small4 {
+    background-color: rgba(128, 0, 128, 0.774);
+}
+#item1 {
+    background-color: rgba(253, 176, 33, 0.904);
+}
+#item2 {
+    background-color: rgb(249, 253, 33);
+}
+#item3 {
+    background-color: rgba(94, 207, 29, 0.815);
+}
+#item4 {
+    background-color: rgba(255, 192, 203, 0.938);
+}
+
+/* items sizing*/
+.items {
+    width: 100px;
+    height: 100px;
+}
