@@ -1,0 +1,56 @@
+/* General styles */
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+/* a mixture btw flex and Grid  to style the boxes */
+.inline-boxes {
+    display: flex;
+    margin: 5px;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 200px;
+    height: 200px;
+    margin: 3px;
+}
+
+/* positioning the grid items and give them bgc*/
+.small-box1 {
+    grid-area: 1 / 2 / 1 / 2;
+    background-color: rgba(255, 166, 0, 0.856);
+}
+
+.small-box2 {
+    grid-area: 2 / 2 / 2 / 2;
+    background-color: rgba(255, 255, 0, 0.877);
+}
+
+.small-box3 {
+    grid-area: 2 / 1 / 2 / 1;
+    background-color: rgba(0, 128, 0, 0.877);
+}
+.small-box4 {
+    grid-area: 1 / 1 / 1 / 1;
+    background-color: rgba(255, 192, 203, 0.925);
+}
+
+/* coloring the grid containers*/
+.big-box1 {
+    background-color: rgba(128, 128, 128, 0.932);
+}
+.big-box2 {
+    background-color: black;
+}
+.big-box3 {
+    background-color: rgba(38, 0, 128, 0.884);
+}
+.big-box4 {
+    background-color: rgba(128, 0, 128, 0.842);
+}
