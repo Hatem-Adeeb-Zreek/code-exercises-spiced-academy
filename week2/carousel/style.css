@@ -29,3 +29,24 @@ img {
     transform: translateX(-100%);
     z-index: 1;
 }
+
+#dots {
+    position: absolute;
+    bottom: 25px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    z-index: 1;
+}
+
+.dot {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    border: white solid 2px;
+    margin: 0 10px;
+}
+
+.on {
+    background-color: #fff;
+}
