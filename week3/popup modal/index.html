@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="stylesheet.css" />
+        <title>Spiced</title>
+    </head>
+    <body>
+        <header>
+            <nav>
+                <img src="./assets/spiced.png" alt="logo" />
+                <img src="./assets/hamburgermenu.svg" alt="menu" id="menu" />
+            </nav>
+        </header>
+        <main>
+            <div class="modal">
+                <span>X</span>
+                <h2>Welcome to our redesigned site!</h2>
+                <p>
+                    Would you like to take a
+                    <a href="https://www.spiced-academy.com">tour </a> of our
+                    new features?
+                </p>
+                <p>
+                    By the way, this site uses cookies to track every little
+                    thing you do and if you're here we are going to assume you
+                    are ok with that.
+                </p>
+            </div>
+            <section class="spices">
+                <img src="./assets/spices.jpg" alt="spices" class="spices1" />
+                <h1>Welcome to SPICED and the Future.</h1>
+                <button type="submit">Get Started</button>
+            </section>
+            <section class="advantages">
+                <ul>
+                    <li class="left">
+                        <img src="./assets/cat.svg" alt="cat" />
+                        <strong>Best-in-class Features</strong> <br />
+                        Nobody does this stuff better than us. <br />
+                        You can bet your life on that.
+                    </li>
+                    <li>
+                        <img src="./assets/world.svg" alt="world" />
+                        <strong>Reliable Service</strong> <br />
+                        You can count on us to help you <br />
+                        whenever you need it. We're talking <br />
+                        round the clock service.
+                    </li>
+                    <li class="left">
+                        <img src="./assets/swim.svg" alt="swim" />
+                        <strong>An Acquired Taste</strong> <br />
+                        It may take a little while for you to <br />
+                        warm up to us but once you do you <br />
+                        will never want to switch.
+                    </li>
+                    <li>
+                        <img src="./assets/columns.svg" alt="columns" />
+                        <strong>No Limits</strong> <br />
+                        There are absolutely no limits. We do <br />
+                        not throttle. We do not cap.
+                    </li>
+                </ul>
+            </section>
+            <div id="overlay" class="hide move-in"></div>
+            <div id="side-nav-menu" class="hide move-in">
+                <span id="close-x">X</span>
+                <a href="#">Settings</a>
+                <a href="#">Pricing</a>
+                <a href="#">Upgrade</a>
+                <a href="#">Subscribe</a>
+                <a href="#" id="log-out">Log out</a>
+            </div>
+        </main>
+        <footer>© 2016 Some Organization</footer>
+        <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+        <script src="script.js"></script>
+    </body>
+</html>
