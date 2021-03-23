@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#pane2 {
+    position: absolute;
+    top: 0;
+}
+
+#box {
+    position: absolute;
+    top: 20%;
+    left: 20%;
+}
+
+#slide {
+    background-color: whitesmoke;
+    width: 20px;
+    height: 418px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
