@@ -1,4 +1,4 @@
-function numbersInGerman() {
+function translateNumberToGerman() {
     var arr = [
         "eins",
         "zwei",
@@ -16,7 +16,7 @@ function numbersInGerman() {
         console.log(arr[parsedNumber - 1]);
     } catch (error) {
         console.log(error.message);
-        numbersInGerman();
+        translateNumberToGerman();
     }
 }
 
@@ -28,4 +28,4 @@ function askForNumber() {
     throw new Error("Bad number");
 }
 
-numbersInGerman();
+translateNumberToGerman();
