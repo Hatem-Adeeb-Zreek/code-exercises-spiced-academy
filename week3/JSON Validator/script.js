@@ -8,7 +8,7 @@
         var input = textArea.value;
         try {
             JSON.parse(input);
-            alert("VALID JASON");
+            alert("VALID JSON");
         } catch (err) {
             alert("NOT VALID JSON");
         }
