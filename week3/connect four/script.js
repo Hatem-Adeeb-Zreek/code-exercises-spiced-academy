@@ -5,6 +5,7 @@
     var slots = board.find(".slot");
     var col = $(".column");
     var currentPlayer = "player1";
+    var emptySlot;
     var diagonalWinArray = [
         [38, 33, 28, 23],
         [32, 27, 22, 17],
@@ -38,7 +39,7 @@
         // create one column and loop throw six rows
         column += "<div class='column'>";
         for (var i = 0; i < 6; i++) {
-            column += "<div class='slot'" + i + "></div>";
+            column += "<div class='slot row'" + i + "></div>";
         }
         // now we have one column and six rows
         column += "</div>";
@@ -60,9 +61,18 @@
             }
         }
     }
+    function switchPlayer() {
+        // to switch btw player1 and player2
+        if (currentPlayer === "player1") {
+            currentPlayer = "player2";
+        } else {
+            currentPlayer = "player1";
+        }
+    }
 
     // add click event for the columns
-    col.on("click", function () {
+    col.on("click", function (e) {
         diagonalWinning();
+        switchPlayer();
     });
 })();
