@@ -7,6 +7,7 @@
     var currentPlayer = "player1";
     var emptySlot;
     var rowSlots;
+    var str = "";
     var diagonalWinArray = [
         [38, 33, 28, 23],
         [32, 27, 22, 17],
@@ -69,6 +70,16 @@
         } else {
             currentPlayer = "player1";
         }
+    }
+    function currentPlayerWin(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr.eq(i).hasClass(currentPlayer)) {
+                str += "w";
+            } else {
+                str += "1";
+            }
+        }
+        return str.indexOf(str) > -1;
     }
 
     // add click event for the columns
