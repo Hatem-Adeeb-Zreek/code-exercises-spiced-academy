@@ -6,6 +6,7 @@
     var col = $(".column");
     var currentPlayer = "player1";
     var emptySlot;
+    var rowSlots;
     var diagonalWinArray = [
         [38, 33, 28, 23],
         [32, 27, 22, 17],
@@ -72,7 +73,20 @@
 
     // add click event for the columns
     col.on("click", function (e) {
-        diagonalWinning();
-        switchPlayer();
+        var columnSlots = $(e.currentTarget).find(".slot");
+        // loop to check for empty slots
+        for (var i = 6; i > 0; i--) {
+            if (
+                !columnSlots.eq(i).hasClass("player1") &&
+                !columnSlots.eq(i).hasClass("player2")
+            ) {
+                emptySlot = columnSlots.eq(i);
+                emptySlot.addClass(currentPlayer);
+                rowSlots = $(".row" + i);
+                break;
+            }
+        }
+        // diagonalWinning();
+        // switchPlayer();
     });
 })();
