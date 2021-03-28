@@ -45,3 +45,11 @@ body {
     float: right;
     padding: 5px;
 }
+
+/* style player1 & player2 */
+.slot.player1 {
+    background-color: tomato;
+}
+.slot.player2 {
+    background-color: crimson;
+}
