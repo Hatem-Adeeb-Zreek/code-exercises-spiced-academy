@@ -1,38 +1,55 @@
-(function () {
+(function fn() {
     var headings = $("#headlines");
-    var links = $("a");
-    console.log(links);
-    var leftPosition = headings.offset().left;
-    var reqId;
+    var links;
+    var left = headings.offset().left;
+    var id;
+
+    $.ajax({
+        url: "links.json",
+        success: function (data) {
+            for (var j = 0; j < data.length; j++) {
+                var href = data[j].href;
+                var heading = data[j].heading;
+                $('<a  href="' + href + '">' + heading + "</a>").appendTo(
+                    headings
+                );
+            }
+            links = $("a");
+            animationFunction();
+            // after calling the function, I found that I should move the eventlisteners to here to make the code works
+            // I think there is another way .... plz give me examples
+            for (var i = 0; i < links.length; i++) {
+                links.eq(i).on("mouseenter", function (e) {
+                    cancelAnimationFrame(id);
+                    $(e.target).css({
+                        textDecoration: "underline",
+                        color: "blue",
+                    });
+                });
+                links.eq(i).on("mouseleave", function (e) {
+                    $(e.target).css({
+                        color: "",
+                        textDecoration: "none",
+                    });
+                    animationFunction();
+                });
+            }
+        },
+        error: function (error) {
+            console.log(error);
+        },
+    });
 
     var animationFunction = function () {
-        leftPosition--;
-        if (leftPosition <= 0 - links.eq(0).width()) {
-            leftPosition = leftPosition + links.eq(0).width();
+        links = $("a");
+        left--;
+        if (left <= 0 - links.eq(0).outerWidth()) {
+            left += links.eq(0).outerWidth();
             headings.append(links.eq(0));
         }
         headings.css({
-            left: leftPosition + "px",
+            left: left + "px",
         });
-        reqId = requestAnimationFrame(animationFunction);
+        id = requestAnimationFrame(animationFunction);
     };
-    animationFunction();
-
-    for (var i = 0; i < links.length; i++) {
-        links.eq(i).on("mouseenter", function (e) {
-            cancelAnimationFrame(reqId);
-            $(e.target).css({
-                textDecoration: "underline",
-                color: "blue",
-            });
-        });
-
-        links.eq(i).on("mouseleave", function (e) {
-            $(e.target).css({
-                color: "rgb(163, 7, 7)",
-                textDecoration: "none",
-            });
-            animationFunction();
-        });
-    }
 })();

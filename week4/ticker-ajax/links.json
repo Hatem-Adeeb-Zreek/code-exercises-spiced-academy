@@ -1,38 +1,38 @@
 [
     {
         "href": "https://edition.cnn.com/",
-        "headings": "🛑 CNN Breaking News 🛑"
+        "heading": "🛑 CNN Breaking News 🛑"
     },
     {
         "href": "https://edition.cnn.com/2021/03/16/politics/us-election-intel-report/index.html",
-        "headings": "US intel report: Russia tried to interfere in 2020 election"
+        "heading": "US intel report: Russia tried to interfere in 2020 election"
     },
     {
         "href": "https://edition.cnn.com/2021/03/16/us/michelle-obama-meghan-markle-interview-trnd/index.html",
-        "headings": "Michelle Obama: Not a total surprise to hear Meghan talk of racism in royal family"
+        "heading": "Michelle Obama: Not a total surprise to hear Meghan talk of racism in royal family"
     },
     {
         "href": "https://edition.cnn.com/2021/03/16/europe/uk-security-defense-review-intl-hnk-gbr/index.html",
-        "headings": "UK labels Russia top security threat"
+        "heading": "UK labels Russia top security threat"
     },
     {
         "href": "https://edition.cnn.com/2021/03/14/middleeast/yemen-freed-journalist-intl/index.html",
-        "headings": "Yemeni journalist freed from jail after Biden administration"
+        "heading": "Yemeni journalist freed from jail after Biden administration"
     },
     {
         "href": "https://edition.cnn.com/2021/03/08/middleeast/syria-assad-coronavirus-intl/index.html",
-        "headings": "Bashar al-Assad and his wife Asma test positive for Covid-19"
+        "heading": "Bashar al-Assad and his wife Asma test positive for Covid-19"
     },
     {
         "href": "https://edition.cnn.com/2021/03/10/middleeast/hathloul-saudi-court-upholds-sentence-intl/index.html",
-        "headings": "Saudi women's rights"
+        "heading": "Saudi women's rights"
     },
     {
         "href": "https://edition.cnn.com/2021/03/10/middleeast/yemen-famine-saudi-fuel-intl/index.html",
-        "headings": "Famine has arrived in pockets of Yemen"
+        "heading": "Famine has arrived in pockets of Yemen"
     },
     {
         "href": "https://edition.cnn.com/2021/03/15/africa/armed-men-attempt-attack-nigeria-school-intl/index.html",
-        "headings": "Armed men attack another Nigerian school"
+        "heading": "Armed men attack another Nigerian school"
     }
 ]
