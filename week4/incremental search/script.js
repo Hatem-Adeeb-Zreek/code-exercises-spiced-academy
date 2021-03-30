@@ -5,7 +5,7 @@
 
     // input event
     searchField.on("input", function () {
-        var userInput = searchField.val();
+        var userInput = searchField.val().toLowerCase();
 
         if (userInput === null || userInput === "") {
             results.empty();
@@ -17,7 +17,7 @@
                 q: userInput,
             },
             success: function (matchResults) {
-                if (userInput !== searchField.val()) {
+                if (userInput !== searchField.val().toLowerCase()) {
                     return;
                 } else {
                     var htmlForCountries = "";
