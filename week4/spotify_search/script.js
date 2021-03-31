@@ -1,10 +1,9 @@
 (function () {
-    //declare variables
+    //target elements
     var inputField = $("input");
     var dropdown = $("select");
     var button = $("button");
     var resultsContainer = $(".results-container");
-    // var nextUrl;
 
     // add event listener
     button.on("click", function () {
@@ -48,7 +47,7 @@
                             resultsHtml +=
                                 "<a href='" +
                                 exURL +
-                                "'><div><div><img src='" +
+                                "'><div class='results'><div ><img src='" +
                                 image +
                                 "'></div><div><p>" +
                                 name +

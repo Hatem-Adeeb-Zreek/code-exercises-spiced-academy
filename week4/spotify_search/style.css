@@ -44,7 +44,7 @@ select {
     font-size: 20px;
 }
 button {
-    width: 200px;
+    width: 150px;
     height: 88px;
     background-color: white;
     color: rgb(79, 219, 51);
@@ -61,4 +61,40 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.results-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+    height: 50%;
+}
+
+.results {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 2px solid black;
+    background-color: rgba(0, 0, 0, 0.726);
+    color: white;
+    border-radius: 25px;
+    width: 400px;
+    height: 200px;
+    margin: 10px;
+    padding: 10px;
+}
+img {
+    width: 100px;
+    height: 100px;
+}
+
+.results p {
+    font-size: 30px;
+    margin-left: 5px;
+}
+
+a {
+    text-decoration: none;
 }
