@@ -22,12 +22,6 @@
                 },
                 success: function (response) {
                     response = response.artists || response.albums;
-                    // if (response.next) {
-                    //     nextUrl = response.next.replace(
-                    //         "api.spotify.com/v1/search",
-                    //         "spicedify.herokuapp.com/spotify"
-                    //     );
-                    // }
                     if (response.items.length === 0) {
                         resultsContainer.html("<p>No results</p>");
                     } else {
