@@ -22,5 +22,30 @@ const logSizes = (path) => {
     });
 };
 
+// mapSizes function
+const mapSizes = (path) => {
+    const dir = fs.readdirSync(path, { withFileTypes: true });
+    const obj = {};
+    let fileName;
+    let dirName;
+    for (let i = 0; i < dir.length; i++) {
+        if (dir[i].isFile()) {
+            fileName = `${dir[i].name}`;
+            const stat = fs.statSync(`${path}/${fileName}`);
+            obj[fileName] = stat["size"];
+        } else {
+            dirName = `${dir[i].name}`;
+            obj[dirName] = mapSizes(`${path}/${dir[i].name}`);
+        }
+    }
+    return obj;
+};
+
 // invoke logSizes function
 logSizes(__dirname);
+
+// create json file that has all the dirs and files and the sizes of the files
+fs.writeFileSync(
+    `${__dirname}/jsonFile.json`,
+    JSON.stringify(mapSizes(__dirname), null, 4)
+);
