@@ -1,5 +1,9 @@
-// import http module
+// import modules
 const http = require("http");
+const fs = require("fs");
+
+// date obj to present date and time
+const date = new Date();
 
 // create a server
 const server = http.createServer((req, res) => {
@@ -18,6 +22,13 @@ const server = http.createServer((req, res) => {
     console.log("Method_Name:::", method);
     console.log("Headers:::", headers);
     console.log("URL:::", url);
+
+    // appendFile Method
+    fs.appendFile(
+        "requests.txt",
+        `${date}\t${method}\t${url}\t${headers["user-agent"]}\n`,
+        (err) => console.log(err)
+    );
 
     // GET REQUEST
     if (method === "GET") {
