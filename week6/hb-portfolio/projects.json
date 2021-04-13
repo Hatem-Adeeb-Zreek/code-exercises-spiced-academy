@@ -1,0 +1,26 @@
+[
+    {
+        "title": "Kitty-Carousel",
+        "directory": "carousel"
+    },
+    {
+        "title": "Connect Four",
+        "directory": "connect_four"
+    },
+    {
+        "title": "incremental search",
+        "directory": "incremental_search"
+    },
+    {
+        "title": "Spiced",
+        "directory": "spiced"
+    },
+    {
+        "title": "Spotify Search",
+        "directory": "spotify_search"
+    },
+    {
+        "title": "ticker",
+        "directory": "ticker"
+    }
+]
