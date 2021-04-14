@@ -1,15 +1,24 @@
 // import modules
 const express = require("express");
 const cookieParser = require("cookie-parser");
-const { htmlGenerator } = require("./htmlGenerator.js");
 
 // init express
 const app = express();
 
 // middlewares
-app.use(express.static("projects"));
-
 app.use(cookieParser());
+
+app.use((req, res, next) => {
+    if (req.cookies.accepted || req.url == "/cookie") {
+        return next();
+    }
+    if (!req.cookies.url) {
+        res.cookie("url", req.url);
+    }
+    res.redirect("/cookie");
+});
+
+app.use(express.static("./projects"));
 
 app.use(
     express.urlencoded({
@@ -17,42 +26,42 @@ app.use(
     })
 );
 
-app.use((req, res, next) => {
-    if (req.cookies.checked === undefined && req.path !== "/cookie") {
-        res.cookie("req-path", req.path);
-        res.redirect("/cookie");
-    } else {
-        next();
-    }
-});
-
 // routes
-app.get("/", (req, res) => {
-    console.log(req.cookies);
-    res.send(htmlGenerator());
-});
-
-app.get("/cookie", (req, res) => {
-    res.send(`
-        <h4> 🛑to use this site you must accept cookies🛑</h4>
+app.get("/cookie", (req, res) =>
+    res.send(
+        `<!doctype html>
+        <title>ACCEPT COOKIES PLEASE</title>
+        <h1>Will you go along with our cookie policy?</h1>
         <form method="POST">
-            <label> accept cookies </label>
-            <input type="checkbox" name="checkbox">
-            <button>Submit</button>
-        </form>
-        `);
-});
+            <label>
+                <input type="checkbox" name="accepts">
+                I accept!
+            </label>
+            <button>submit</button>
+        </form>`
+    )
+);
 
-app.post("/cookie", (req, res) => {
-    const { checkbox } = req.body;
-    if (checkbox === "on") {
-        res.cookie("checked", "true");
-        res.redirect(req.cookies.path);
-    } else {
-        res.send(
-            "<p> Sorry, You must accept cookies to navigate the website</p>"
+app.post(`/cookie`, (req, res) => {
+    if (req.cookies.accepted) {
+        return res.send(
+            `<!doctype html>
+                <title>THANK YOU FOR ACCEPTING</title>
+                <h1>You have already accepted and you can't take it back</h1>
+                <p>Enjoy the site`
         );
     }
+    if (!req.body.accepts) {
+        return res.send(
+            `<!doctype html>
+                <title>THANKS FOR NOTHING</title>
+                <a href="/cookie">Please change your mind</a>`
+        );
+    }
+    res.cookie("accepted", 1);
+    const { url = "/spotify" } = req.cookies;
+    res.clearCookie("url");
+    res.redirect(url);
 });
 
 // port listening
