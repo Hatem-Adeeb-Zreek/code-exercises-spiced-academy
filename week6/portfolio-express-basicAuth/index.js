@@ -2,39 +2,36 @@
 const express = require("express");
 const cp = require("cookie-parser");
 const basicAuth = require("basic-auth");
-const { htmlGenerator } = require("./htmlGenerator.js");
 
 // init express
 const app = express();
 
 // middlewares
-const auth = function (req, res, next) {
-    const creds = basicAuth(req);
-    if (!creds || creds.name != "syria" || creds.pass != "syria") {
-        res.setHeader(
-            "WWW-Authenticate",
-            'Basic realm="please enter your username and password to continue"'
-        );
-        res.sendStatus(401);
-    } else {
-        next();
-    }
-};
-
-app.use("/carousel", auth);
-
 app.use(cp());
 
-app.use(function (req, res, next) {
-    if (req.cookies.accepted === undefined && req.path !== "/cookie") {
-        res.cookie("myPath", req.path);
-        res.redirect("/cookie");
-    } else {
-        next();
+app.use((req, res, next) => {
+    if (req.cookies.accepted || req.url == "/cookie") {
+        return next();
     }
+    if (!req.cookies.url) {
+        res.cookie("url", req.url);
+    }
+    res.redirect("/cookie");
 });
 
-app.use(express.static("projects"));
+app.use("/spotify_search", (req, res, next) => {
+    const { name, pass } = basicAuth(req) || {};
+    if (name == "funky" && pass == "chicken") {
+        return next();
+    }
+    res.setHeader(
+        "WWW-Authenticate",
+        'Basic realm="Enter your credentials to see something great."'
+    );
+    res.sendStatus(401);
+});
+
+app.use(express.static("./projects"));
 
 app.use(
     express.urlencoded({
@@ -43,37 +40,41 @@ app.use(
 );
 
 // routes
-app.get("/", (req, res) => {
-    res.send(htmlGenerator());
-});
-
-app.get("/cookie", (req, res) => {
+app.get("/cookie", (req, res) =>
     res.send(
-        `   <h4> this website use cookies. you should accept cookies to continue</h4>
-            <form method="POST">
-                <input type="checkbox"  name="checkbox">
-                <label>accepted</label>
-                <button>Submit</button>
-            </form>
-        `
-    );
-});
+        `<!doctype html>
+        <title>ACCEPT COOKIES PLEASE</title>
+        <h1>Will you go along with our cookie policy?</h1>
+        <form method="POST">
+            <label>
+                <input type="checkbox" name="accepts">
+                I accept!
+            </label>
+            <button>submit</button>
+        </form>`
+    )
+);
 
-app.post("/cookie", (req, res) => {
-    if (req.body.checkbox === "on") {
-        res.cookie("accepted", "true");
-        if (req.cookies.myPath) {
-            res.redirect(req.cookies.myPath);
-        } else {
-            res.redirect("/");
-        }
-    } else {
-        res.send(
-            `
-                <p>You should accept cookies to continue</p>
-            `
+app.post(`/cookie`, (req, res) => {
+    if (req.cookies.accepted) {
+        return res.send(
+            `<!doctype html>
+                <title>THANK YOU FOR ACCEPTING</title>
+                <h1>You have already accepted and you can't take it back</h1>
+                <p>Enjoy the site`
         );
     }
+    if (!req.body.accepts) {
+        return res.send(
+            `<!doctype html>
+                <title>THANKS FOR NOTHING</title>
+                <a href="/cookie">Please change your mind</a>`
+        );
+    }
+    res.cookie("accepted", 1);
+    const { url = "/spotify" } = req.cookies;
+    res.clearCookie("url");
+    res.redirect(url);
 });
 
 // server listening
