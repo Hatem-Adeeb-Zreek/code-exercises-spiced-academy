@@ -1,13 +1,3 @@
-// const secrets = require("./secrets.json");
-// const https = require("https");
-
-// module.exports.getToken = (callback) => {
-//     const req = https.request(options, cb);
-//     req.end("grant_type");
-// };
-// module.exports.getTweets = (token, callback) => {};
-// module.exports.filterTweets = () => {};
-
 const { Key, Secret } = require("./secrets.json");
 const https = require("https");
 
@@ -35,19 +25,14 @@ module.exports.getToken = function (callback) {
             body += chunk;
         });
         response.on("end", function () {
-            // console.log("body", body); // this shows the returned JSON
             let parsedBody = JSON.parse(body);
-            // console.log("parsedBody", parsedBody); //this shows the parsed object
             callback(null, parsedBody.access_token);
         });
     }
 
     const req = https.request(options, cb);
     req.end("grant_type=client_credentials");
-    // this function will get the token from twitter
 };
-
-//~~~~~
 
 module.exports.getTweets = function (bearerToken, callback) {
     const statuses = {
@@ -70,9 +55,7 @@ module.exports.getTweets = function (bearerToken, callback) {
             body += chunk;
         });
         response.on("end", function () {
-            // console.log("body", body); // this shows the returned JSON
             let parsedBody = JSON.parse(body);
-            // console.log("parsedBody", parsedBody); //this shows the parsed object
             callback(null, parsedBody);
         });
     }
