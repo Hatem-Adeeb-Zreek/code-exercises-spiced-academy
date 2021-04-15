@@ -1,0 +1,18 @@
+{{#if home}}
+    {{#projects}}
+        <div>
+            <a href="/description/{{directory}}">
+                <div>
+                    <p>{{title}}</p>
+                    <div>
+                        <img src="/{{directory}}/screenshot.jpg">
+                    </div>
+                </div>
+            </a>
+        </div>
+    {{/projects}}
+    {{else}}
+        {{#projects}}
+            <a href="/description/{{directory}}">{{title}}</a>
+        {{/projects}}
+{{/if}}

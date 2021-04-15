@@ -1,0 +1,19 @@
+<div>
+    <nav>
+        <p>Projects List</p>
+         {{>list}}
+    </nav>
+    <div>
+    {{#selectedProject}}    
+        <h2>{{title}}</h2>
+        <div>
+        <a href="/{{directory}}" target="_blank">
+            <img src="/{{directory}}/screenshot.jpg">
+        </a>
+        </div>
+        <div>
+            {{description}}
+        </div>
+    {{/selectedProject}}
+    </div>
+</div>
