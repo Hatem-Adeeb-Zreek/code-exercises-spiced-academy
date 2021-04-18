@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+#headlines {
+    white-space: nowrap;
+    position: absolute;
+    left: 50%;
+}
+
+#headlines a {
+    padding-right: 30px;
+    text-decoration: none;
+    color: rgb(163, 7, 7);
+}
+
+#ticker {
+    position: relative;
+    overflow: hidden;
+    height: 1.5em;
+}
